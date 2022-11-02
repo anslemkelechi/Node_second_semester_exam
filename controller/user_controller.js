@@ -28,6 +28,7 @@ exports.signUp = async (req, res) => {
 
   user.firstname = req.body.firstName;
   user.lastname = req.body.lastName;
+  //user.email = req.body.email; // Took this out.
 
   await user.save();
 

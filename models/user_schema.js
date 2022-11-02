@@ -44,6 +44,6 @@ UserSchema.methods.isValidPassword = async function (password) {
 
   return compare;
 };
-const User = moogoose.model("User", UserSchema);
+const User = moogoose.model("User", UserSchema); //I added this.
 // Export the model
 module.exports = User;
