@@ -35,6 +35,7 @@ exports.getBlog = async(req, res) =>{
 
     const id = req.params.id;
     await blogModel.findById(id)
+    .populate('User')
         .then(blog => {
             res.status(200).send(blog)
         }).catch(err => {

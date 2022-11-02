@@ -6,26 +6,27 @@ const Schema = moogoose.Schema;
 
 //Define book schema
 const UserSchema = new Schema({
-    email: {
-        type: String,
-        required: [true, 'your email is required'],
-        unique: true
-    },
-    firstname: {
-        type: String,
-        //  required: true
-    },
-    lastname: {
-        type: String,
-        // required: true,
-        max: [2022, 'Year must be less than or equal to 2020'] //validation with custom message
-    },
-    password: {
-        type: String,
-        // required: true,
-        //validation with custom message
-    },
-    timestamps: Date
+  id: moogoose.Schema.Types.ObjectId,
+  email: {
+    type: String,
+    required: [true, "your email is required"],
+    unique: true,
+  },
+  firstname: {
+    type: String,
+    //  required: true
+  },
+  lastname: {
+    type: String,
+    // required: true,
+    max: [2022, "Year must be less than or equal to 2020"], //validation with custom message
+  },
+  password: {
+    type: String,
+    // required: true,
+    //validation with custom message
+  },
+  timestamps: Date,
 });
 
 

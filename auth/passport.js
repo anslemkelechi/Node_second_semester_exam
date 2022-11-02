@@ -33,23 +33,21 @@ passport.use(
     new localStrategy(
         {
             usernameField: 'email',
-            passwordField: 'password'
-            // fistnameField: 'firstname',
-            // lastnameField: 'lastname',
+            passwordField: 'password',
+            passReqToCallback: true
 
 
         },
-        async (email, password, done) => {
+        async (req, email, password, done) => {
+            const {firstname, lastname} = req.body
             try {
                 const user = await UserModel.create({
                   email,
                   password,
-                  passReqToCallback: true,
-                  //   firstname,
-                  //   lastname,
-                  //   timestamps,
+                  firstname, lastname
+                //   passReqToCallback: true,
                 });
-
+                //    user.firstname
                 return done(null, user, { message: 'User created successfully'});
             } catch (error) {
                 console.log(error)

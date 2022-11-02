@@ -3,7 +3,7 @@ const blogsRoute = require('./route/blog_route');
 const userRoute = require('./route/user_route');
 // const BasicAuth = require('./auth/auth');
 
-// const bodyParser = require('body-parser');
+ const bodyParser = require('body-parser');
 
 require('./db').connectToMongoDB() // Connect to MongoDB
 require('dotenv').config()
@@ -16,7 +16,7 @@ const app = express();
 
 // app.use(BasicAuth);
 
-// app.use(bodyParser.urlencoded({ extended: false }));
+ app.use(bodyParser.urlencoded({ extended: false }));
 // app.use('/', authRoute);
 app.use(express.json());
 
