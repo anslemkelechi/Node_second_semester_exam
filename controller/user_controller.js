@@ -2,7 +2,7 @@ const jwt = require("jsonwebtoken");
 const passport = require("passport");
 require("dotenv").config();
 
-const { UserSchema } = require("../models/user_schema");
+const User = require("../models/user_schema");
 
 exports.signUp = async (req, res) => {
   //  const {firstname, lastname, email, password} = req.body;
@@ -24,11 +24,10 @@ exports.signUp = async (req, res) => {
   //   console.log(err)
   //     return err
   // }
-  const user = await UserSchema.findOne({ username: req.user.username });
+  const user = await User.findOne({ username: req.user.username });
 
   user.firstname = req.body.firstName;
   user.lastname = req.body.lastName;
-  user.email = req.body.email;
 
   await user.save();
 
